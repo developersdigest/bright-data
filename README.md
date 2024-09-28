@@ -1,37 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+This is a Next.js web application that provides a simple interface for searching Google using an API. The main components are:
 
-## Getting Started
+1. Frontend (app/page.tsx):
+- A search input and button to enter a query
+- Displays JSON results from the search API
 
-First, run the development server:
+2. Backend API (app/api/bright-data/route.ts):
+- Handles POST requests to search Google
+- Uses Bright Data's web unlocker proxy to access search results
+- Converts HTML results to Markdown
+- Has special handling for Amazon product searches using Puppeteer
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. Configuration:
+- Next.js config (next.config.mjs)
+- Tailwind CSS config (tailwind.config.ts, postcss.config.mjs)
+- TypeScript config (tsconfig.json)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Dependencies:
+- Next.js for the framework
+- React for the UI
+- Tailwind CSS for styling
+- Puppeteer for web scraping 
+- Other utilities like Turndown for HTML to Markdown conversion
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app allows users to enter a search query, makes a request to the backend API, which then uses Bright Data's proxy to access Google search results, and displays the results as JSON on the page. It has special handling for Amazon product searches to extract specific product details.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# bright-data
+Key files:
+- app/page.tsx - Main page component
+- app/api/bright-data/route.ts - Backend API route
+- app/layout.tsx - Root layout component
+- package.json - Dependencies and scripts
